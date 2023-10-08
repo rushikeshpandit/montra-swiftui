@@ -11,7 +11,7 @@ import SwiftUI
 struct montraApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashScreen()
         }
     }
 }
