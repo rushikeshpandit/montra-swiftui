@@ -8,10 +8,11 @@
 import SwiftUI
 
 @main
-struct montraApp: App {
+struct MontraApp: App {
     var body: some Scene {
         WindowGroup {
             SplashScreen()
+                .ignoresSafeArea(.all, edges: .all)
         }
     }
 }
