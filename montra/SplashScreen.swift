@@ -6,24 +6,33 @@
 //
 
 import SwiftUI
-import SVGView
 
 struct SplashScreen: View {
+    @State var isActive: Bool = false
 
     var body: some View {
         ZStack {
-            HStack{
-                VStack{
-                    Image("launch_screen")
-                        .scaledToFit()
-                        .frame(width: 300,height: 200,alignment: .center)
+            if self.isActive{
+                MainView()
+            } else {
+                HStack{
+                    VStack{
+                        Image("launch_screen")
+                            .scaledToFit()
+                            .frame(width: 300,height: 200,alignment: .center)
+                    }
                 }
             }
         }
         .frame(maxWidth: .infinity,
                maxHeight: .infinity,
                alignment: .center)
-        .background(.launchScreenBackground)
+        .background(Color.launch_screen_background)
+        .onAppear(perform: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.isActive = true
+            }
+        })
     }
 }
 

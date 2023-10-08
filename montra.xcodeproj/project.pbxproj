@@ -15,6 +15,7 @@
 		D94D295D2AD2B83600966D13 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D94D295C2AD2B83600966D13 /* RealmSwift */; };
 		D94D29602AD2B88600966D13 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D94D295F2AD2B88600966D13 /* Alamofire */; };
 		D94D296E2AD2BD2D00966D13 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94D296D2AD2BD2D00966D13 /* Color.swift */; };
+		D9DC1B422AD2C760008B5155 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC1B412AD2C760008B5155 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D94D294F2AD2B78E00966D13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D94D29522AD2B78E00966D13 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D94D296D2AD2BD2D00966D13 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		D9DC1B412AD2C760008B5155 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				D94D294B2AD2B78C00966D13 /* montraApp.swift */,
 				D94D294D2AD2B78C00966D13 /* SplashScreen.swift */,
+				D9DC1B412AD2C760008B5155 /* MainView.swift */,
 				D94D296C2AD2BD1B00966D13 /* Extensions */,
 				D94D294F2AD2B78E00966D13 /* Assets.xcassets */,
 				D94D29512AD2B78E00966D13 /* Preview Content */,
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D94D294E2AD2B78C00966D13 /* SplashScreen.swift in Sources */,
+				D9DC1B422AD2C760008B5155 /* MainView.swift in Sources */,
 				D94D294C2AD2B78C00966D13 /* montraApp.swift in Sources */,
 				D94D296E2AD2BD2D00966D13 /* Color.swift in Sources */,
 			);
