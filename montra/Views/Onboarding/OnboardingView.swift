@@ -61,6 +61,7 @@ struct OnboardingView: View {
                 .multilineTextAlignment(.center)
                 .foregroundColor(.subTitleText)
         }
+        .padding(.horizontal, 60)
         .frame(maxWidth: .infinity,
                maxHeight: .infinity,
                alignment: .center)
