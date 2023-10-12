@@ -12,8 +12,8 @@ struct OnboardingView: View {
     @State var title: String = ""
     @State var subTitle: String = ""
     
-    @ViewBuilder func getImage(state: OnboardingStates) -> some View  {
-        switch state {
+    @ViewBuilder func getImage() -> some View  {
+        switch currentOnboardingState {
             case .one:
                 Image("intro_page_one")
             case .two:
@@ -28,6 +28,8 @@ struct OnboardingView: View {
         VStack {
             getImage(state: currentOnboardingState)
             
+            getImage()
+                .padding(.vertical, 20)
         }
         .frame(maxWidth: .infinity,
                maxHeight: .infinity,
