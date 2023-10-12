@@ -23,6 +23,16 @@ struct OnboardingView: View {
         }
     }
     
+    @ViewBuilder func getTitleText() -> some View  {
+        switch currentOnboardingState {
+            case .one:
+                Text("Gain total control of your money")
+            case .two:
+                Text("Know where your money goes")
+            case .three:
+                Text("Planning ahead")
+        }
+    }
     
     var body: some View {
         VStack {
@@ -30,6 +40,11 @@ struct OnboardingView: View {
             
             getImage()
                 .padding(.vertical, 20)
+            getTitleText()
+                .padding(.vertical, 20)
+                .font(.custom("Inter-Bold", fixedSize: 32))
+                .frame(alignment: .center)
+                .multilineTextAlignment(.center)
         }
         .frame(maxWidth: .infinity,
                maxHeight: .infinity,
