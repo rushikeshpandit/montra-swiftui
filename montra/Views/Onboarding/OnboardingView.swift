@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  OnboardingView.swift
 //  montra
 //
 //  Created by Rushikesh Pandit on 08/10/23.
@@ -47,8 +47,6 @@ struct OnboardingView: View {
     
     var body: some View {
         VStack {
-            getImage(state: currentOnboardingState)
-            
             getImage()
                 .padding(.vertical, 20)
             getTitleText()
