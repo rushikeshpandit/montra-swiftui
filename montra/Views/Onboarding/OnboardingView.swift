@@ -33,6 +33,17 @@ struct OnboardingView: View {
                 Text("Planning ahead")
         }
     }
+
+    @ViewBuilder func getSubTitleText() -> some View  {
+        switch currentOnboardingState {
+            case .one:
+                Text("Become your own money manager and make every cent count")
+            case .two:
+                Text("Track your transactions easily, with categories and financial report")
+            case .three:
+                Text("Setup your budget for each category so you are in control")
+        }
+    }
     
     var body: some View {
         VStack {
@@ -45,6 +56,12 @@ struct OnboardingView: View {
                 .font(.custom("Inter-Bold", fixedSize: 32))
                 .frame(alignment: .center)
                 .multilineTextAlignment(.center)
+            getSubTitleText()
+                .padding(.vertical, 20)
+                .font(.custom("Inter-Medium", fixedSize: 16))
+                .frame(alignment: .center)
+                .multilineTextAlignment(.center)
+                .foregroundColor(.subTitleText)
         }
         .frame(maxWidth: .infinity,
                maxHeight: .infinity,
