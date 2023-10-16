@@ -12,12 +12,12 @@ struct DotIndicator: View {
     let minScale: CGFloat = 1
     let maxScale: CGFloat = 2
     let minOpacity: Double = 0.6
-    
+
     let pageIndex: Int
     @Binding var selectedPage: Int
-    
+
     var body: some View {
-        
+
         Button(action: {
             self.selectedPage = self.pageIndex
         }) {
@@ -34,7 +34,6 @@ struct DotIndicator: View {
                     : Color.launchScreenBackground.opacity(minOpacity)
                 )
         }
-        
     }
 }
 
@@ -43,16 +42,16 @@ struct PageIndicator: View {
     // Constants
     private let spacing: CGFloat = 10
     private let diameter: CGFloat = 8
-    
+
     // Settings
     let numPages: Int
     @Binding var selectedIndex: Int
-    
+
     init(numPages: Int, currentPage: Binding<Int>) {
         self.numPages = numPages
         self._selectedIndex = currentPage
     }
-    
+
     var body: some View {
         VStack {
             HStack(alignment: .center, spacing: spacing) {
@@ -69,7 +68,6 @@ struct PageIndicator: View {
         }
     }
 }
-
 
 // MARK: - Previews -
 struct DotIndicator_Previews: PreviewProvider {
