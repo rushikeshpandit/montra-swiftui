@@ -9,10 +9,12 @@ import SwiftUI
 
 struct OnboardingView: View {
     @State var currentOnboardingState: OnboardingStates = .one
+    @State var currentIndex: Int = 0
     @State var title: String = ""
     @State var subTitle: String = ""
-    
-    @ViewBuilder func getImage() -> some View  {
+    let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
+
+    @ViewBuilder func getImage() -> some View {
         switch currentOnboardingState {
             case .one:
                 Image("intro_page_one")
@@ -22,19 +24,19 @@ struct OnboardingView: View {
                 Image("intro_page_three")
         }
     }
-    
-    @ViewBuilder func getTitleText() -> some View  {
+
+    @ViewBuilder func getTitleText() -> some View {
         switch currentOnboardingState {
             case .one:
                 Text("Gain total control of your money")
             case .two:
                 Text("Know where your money goes")
             case .three:
-                Text("Planning ahead")
+                Text("Planning ahead\n")
         }
     }
 
-    @ViewBuilder func getSubTitleText() -> some View  {
+    @ViewBuilder func getSubTitleText() -> some View {
         switch currentOnboardingState {
             case .one:
                 Text("Become your own money manager and make every cent count")
@@ -44,7 +46,7 @@ struct OnboardingView: View {
                 Text("Setup your budget for each category so you are in control")
         }
     }
-    
+
     var body: some View {
         VStack {
             getImage()
@@ -60,13 +62,55 @@ struct OnboardingView: View {
                 .frame(alignment: .center)
                 .multilineTextAlignment(.center)
                 .foregroundColor(.subTitleText)
+            PageIndicator(numPages: 3, currentPage: $currentIndex)
+                .padding(.vertical, 20)
+            Button(action: {
+                print("Sign Up")
+            }) {
+                Text("Sign Up")
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .foregroundColor(.white)
+                    .background(Color.launchScreenBackground)
+                    .cornerRadius(16)
+            }
+            .padding(.top, 40)
+            .padding(.bottom, 20)
+            Button(action: {
+                print("Login")
+            }) {
+                Text("Login")
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .foregroundColor(Color.launchScreenBackground)
+                    .background(Color.primaryLight)
+                    .cornerRadius(16)
+            }
+        }
+        .onReceive(timer) { _ in
+            if currentIndex != 2 {
+                currentIndex +=  1
+            } else {
+                currentIndex = 0
+            }
+            switch currentOnboardingState {
+                case .one:
+                    currentOnboardingState = .two
+                    break
+                case .two:
+                    currentOnboardingState = .three
+                    break
+                case .three:
+                    currentOnboardingState = .one
+                    break
+            }
         }
         .padding(.horizontal, 60)
         .frame(maxWidth: .infinity,
                maxHeight: .infinity,
                alignment: .center)
         .background(Color.white)
-        
+
     }
 }
 
