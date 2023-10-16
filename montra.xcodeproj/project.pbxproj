@@ -15,6 +15,7 @@
 		D94D295D2AD2B83600966D13 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D94D295C2AD2B83600966D13 /* RealmSwift */; };
 		D94D29602AD2B88600966D13 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D94D295F2AD2B88600966D13 /* Alamofire */; };
 		D9BB6C3B2ADD039500954F3C /* PageIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB6C3A2ADD039500954F3C /* PageIndicator.swift */; };
+		D9BB6C422ADD23DE00954F3C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB6C412ADD23DE00954F3C /* SignUpView.swift */; };
 		D9DC1B422AD2C760008B5155 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC1B412AD2C760008B5155 /* OnboardingView.swift */; };
 		D9DC1B4D2AD2D494008B5155 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9DC1B442AD2D493008B5155 /* Inter-Black.ttf */; };
 		D9DC1B4E2AD2D494008B5155 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9DC1B452AD2D493008B5155 /* Inter-Medium.ttf */; };
@@ -35,6 +36,7 @@
 		D94D294F2AD2B78E00966D13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D94D29522AD2B78E00966D13 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D9BB6C3A2ADD039500954F3C /* PageIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageIndicator.swift; sourceTree = "<group>"; };
+		D9BB6C412ADD23DE00954F3C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		D9DC1B412AD2C760008B5155 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		D9DC1B442AD2D493008B5155 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
 		D9DC1B452AD2D493008B5155 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				D9DC1B412AD2C760008B5155 /* OnboardingView.swift */,
+				D9BB6C412ADD23DE00954F3C /* SignUpView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		D9BB6C3F2ADD199B00954F3C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -272,6 +276,7 @@
 				D9DC1B422AD2C760008B5155 /* OnboardingView.swift in Sources */,
 				D94D294C2AD2B78C00966D13 /* MontraApp.swift in Sources */,
 				D9DC1B592AD2D6A5008B5155 /* OnboardingStates.swift in Sources */,
+				D9BB6C422ADD23DE00954F3C /* SignUpView.swift in Sources */,
 				D9BB6C3B2ADD039500954F3C /* PageIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +427,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-no_warn_duplicate_libraries",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.rp.montra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -457,6 +466,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-no_warn_duplicate_libraries",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.rp.montra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
