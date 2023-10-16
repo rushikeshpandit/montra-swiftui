@@ -16,100 +16,99 @@ struct OnboardingView: View {
 
     @ViewBuilder func getImage() -> some View {
         switch currentOnboardingState {
-            case .one:
-                Image("intro_page_one")
-            case .two:
-                Image("intro_page_two")
-            case .three:
-                Image("intro_page_three")
+        case .one:
+            Image("intro_page_one")
+        case .two:
+            Image("intro_page_two")
+        case .three:
+            Image("intro_page_three")
         }
     }
 
     @ViewBuilder func getTitleText() -> some View {
         switch currentOnboardingState {
-            case .one:
-                Text("Gain total control of your money")
-            case .two:
-                Text("Know where your money goes")
-            case .three:
-                Text("Planning ahead\n")
+        case .one:
+            Text("Gain total control of your money")
+        case .two:
+            Text("Know where your money goes")
+        case .three:
+            Text("Planning ahead\n")
         }
     }
 
     @ViewBuilder func getSubTitleText() -> some View {
         switch currentOnboardingState {
-            case .one:
-                Text("Become your own money manager and make every cent count")
-            case .two:
-                Text("Track your transactions easily, with categories and financial report")
-            case .three:
-                Text("Setup your budget for each category so you are in control")
+        case .one:
+            Text("Become your own money manager and make every cent count")
+        case .two:
+            Text("Track your transactions easily, with categories and financial report")
+        case .three:
+            Text("Setup your budget for each category so you are in control")
         }
     }
 
     var body: some View {
-        VStack {
-            getImage()
-                .padding(.vertical, 20)
-            getTitleText()
-                .padding(.vertical, 20)
-                .font(.custom("Inter-Bold", fixedSize: 32))
-                .frame(alignment: .center)
-                .multilineTextAlignment(.center)
-            getSubTitleText()
-                .padding(.vertical, 20)
-                .font(.custom("Inter-Medium", fixedSize: 16))
-                .frame(alignment: .center)
-                .multilineTextAlignment(.center)
-                .foregroundColor(.subTitleText)
-            PageIndicator(numPages: 3, currentPage: $currentIndex)
-                .padding(.vertical, 20)
-            Button(action: {
-                print("Sign Up")
-            }) {
-                Text("Sign Up")
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .foregroundColor(.white)
-                    .background(Color.launchScreenBackground)
-                    .cornerRadius(16)
+        NavigationView {
+            VStack {
+                getImage()
+                    .padding(.vertical, 20)
+                getTitleText()
+                    .padding(.vertical, 20)
+                    .font(.custom("Inter-Bold", fixedSize: 32))
+                    .frame(alignment: .center)
+                    .multilineTextAlignment(.center)
+                getSubTitleText()
+                    .padding(.vertical, 20)
+                    .font(.custom("Inter-Medium", fixedSize: 16))
+                    .frame(alignment: .center)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.subTitleText)
+                PageIndicator(numPages: 3, currentPage: $currentIndex)
+                    .padding(.vertical, 20)
+                Button {
+                    print("Sign Up")
+                } label: {
+                    Text("Sign Up")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(.white)
+                        .background(Color.launchScreenBackground)
+                        .cornerRadius(16)
+                }
+                .padding(.top, 40)
+                .padding(.bottom, 20)
+                Button {
+                    print("Login")
+                } label: {
+                    Text("Login")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(Color.launchScreenBackground)
+                        .background(Color.primaryLight)
+                        .cornerRadius(16)
+                }
             }
-            .padding(.top, 40)
-            .padding(.bottom, 20)
-            Button(action: {
-                print("Login")
-            }) {
-                Text("Login")
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .foregroundColor(Color.launchScreenBackground)
-                    .background(Color.primaryLight)
-                    .cornerRadius(16)
-            }
-        }
-        .onReceive(timer) { _ in
-            if currentIndex != 2 {
-                currentIndex +=  1
-            } else {
-                currentIndex = 0
-            }
-            switch currentOnboardingState {
+            .onReceive(timer) { _ in
+                if currentIndex != 2 {
+                    currentIndex +=  1
+                } else {
+                    currentIndex = 0
+                }
+                switch currentOnboardingState {
                 case .one:
                     currentOnboardingState = .two
-                    break
                 case .two:
                     currentOnboardingState = .three
-                    break
                 case .three:
                     currentOnboardingState = .one
-                    break
+                }
             }
-        }
-        .padding(.horizontal, 60)
-        .frame(maxWidth: .infinity,
-               maxHeight: .infinity,
-               alignment: .center)
+            .padding(.horizontal, 60)
+            .frame(maxWidth: .infinity,
+                   maxHeight: .infinity,
+                   alignment: .center)
         .background(Color.white)
+        }
 
     }
 }

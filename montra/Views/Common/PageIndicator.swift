@@ -18,9 +18,9 @@ struct DotIndicator: View {
 
     var body: some View {
 
-        Button(action: {
+        Button {
             self.selectedPage = self.pageIndex
-        }) {
+        } label: {
             Circle()
                 .scaleEffect(
                     selectedPage == pageIndex
@@ -55,7 +55,7 @@ struct PageIndicator: View {
     var body: some View {
         VStack {
             HStack(alignment: .center, spacing: spacing) {
-                ForEach((0..<numPages)) {
+                ForEach((0..<numPages), id: \.self) {
                     DotIndicator(
                         pageIndex: $0,
                         selectedPage: self.$selectedIndex
