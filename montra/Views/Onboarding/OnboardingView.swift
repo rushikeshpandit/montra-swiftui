@@ -105,7 +105,10 @@ struct OnboardingView: View {
             .frame(maxWidth: .infinity,
                    maxHeight: .infinity,
                    alignment: .center)
-        .background(Color.white)
+            .background(Color.white)
+            .onDisappear(perform: {
+                timer.upstream.connect().cancel()
+            })
         }
 
     }
