@@ -65,15 +65,13 @@ struct OnboardingView: View {
                     .foregroundColor(.subTitleText)
                 PageIndicator(numPages: 3, currentPage: $currentIndex)
                     .padding(.vertical, 20)
-                Button {
-                    print("Sign Up")
-                } label: {
-                    Text("Sign Up")
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .foregroundColor(.white)
-                        .background(Color.launchScreenBackground)
-                        .cornerRadius(16)
+                NavigationLink(destination: SignUpView()) {
+                        Text("Sign Up")
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(.white)
+                            .background(Color.launchScreenBackground)
+                            .cornerRadius(16)
                 }
                 .padding(.top, 40)
                 .padding(.bottom, 20)
